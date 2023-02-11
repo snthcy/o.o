@@ -58,7 +58,7 @@
     gimp
     exa
     dig
-    1password-gui
+    _1password-gui
     spotify
     discord
     steam
