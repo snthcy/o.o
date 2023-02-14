@@ -8,7 +8,7 @@
     # inputs.nix-colors.homeManagerModule
 
     # You can also split up your configuration and import pieces of it here:
-    # ./nvim.nix
+    ./shell/zsh.nix
   ];
 
   nixpkgs = {
@@ -39,6 +39,12 @@
     homeDirectory = "/home/nom";
   };
 
+  home.sessionVariables = {
+      EDITOR = "nvim";
+      SHELL = "${pkgs.zsh}/bin/zsh";
+      BROWSER = "${pkgs.vivaldi}/bin/vivaldi";
+}
+
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   home.packages = with pkgs; [
@@ -58,7 +64,7 @@
     gimp
     exa
     dig
-    1password-gui
+    _1password-gui
     spotify
     discord
     steam
