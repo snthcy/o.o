@@ -43,7 +43,7 @@
       EDITOR = "nvim";
       SHELL = "${pkgs.zsh}/bin/zsh";
       BROWSER = "${pkgs.vivaldi}/bin/vivaldi";
-}
+};
 
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
