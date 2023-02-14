@@ -10,7 +10,6 @@
 			pics = "$HOME/Pictures";
 		};
 		dotDir = ".config/zsh";
-		
 		shellAliases = {
 			".." = "cd ..";
 			"..." = "cd ...";
@@ -19,4 +18,4 @@
 			la = "exa -la";
 		};
 	};
-};
+}

@@ -2,12 +2,8 @@
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
 
 { inputs, lib, config, pkgs, ... }: {
-  # You can import other home-manager modules here
-  imports = [
-    # If you want to use home-manager modules from other flakes (such as nix-colors):
-    # inputs.nix-colors.homeManagerModule
 
-    # You can also split up your configuration and import pieces of it here:
+imports = [
     ./shell/zsh.nix
   ];
 
@@ -33,7 +29,6 @@
     };
   };
 
-  # TODO: Set your username
   home = {
     username = "nom";
     homeDirectory = "/home/nom";
@@ -45,8 +40,6 @@
       BROWSER = "${pkgs.vivaldi}/bin/vivaldi";
 };
 
-  # Add stuff for your user as you see fit:
-  # programs.neovim.enable = true;
   home.packages = with pkgs; [
     go
     cargo
@@ -80,7 +73,6 @@
     ffmpeg
 ];
 
-  # Enable home-manager and git
   programs.home-manager.enable = true;
   programs.git.enable = true;
 
