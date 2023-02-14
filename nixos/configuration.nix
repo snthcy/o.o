@@ -16,7 +16,6 @@
   ];
 
   nixpkgs = {
-    # You can add overlays here
     overlays = [
       # If you want to use overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
@@ -28,9 +27,7 @@
       #   });
       # })
     ];
-    # Configure your nixpkgs instance
     config = {
-      # Disable if you don't want unfree packages
       allowUnfree = true;
     };
   };
@@ -45,33 +42,20 @@
     nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
 
     settings = {
-      # Enable flakes and new 'nix' command
       experimental-features = "nix-command flakes";
-      # Deduplicate and optimize nix store
       auto-optimise-store = true;
     };
   };
 
-  # FIXME: Add the rest of your current configuration
-
-  # TODO: Set your hostname
   networking.hostName = "hpee";
 
   # TODO: This is just an example, be sure to use whatever bootloader you prefer
   boot.loader.systemd-boot.enable = true;
 
-  # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
   users.users = {
-    # FIXME: Replace with your username
     nom = {
-      # TODO: You can set an initial password for your user.
-      # If you do, you can skip setting a root password by passing '--no-root-passwd' to nixos-install.
-      # Be sure to change it (using passwd) after rebooting!
       initialPassword = "nixos";
       isNormalUser = true;
-      openssh.authorizedKeys.keys = [
-        # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
-      ];
       # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
       extraGroups = [ "wheel" ];
     };

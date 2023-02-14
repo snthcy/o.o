@@ -1,7 +1,9 @@
 { config, pkgs, lib, ... }: {
+
 	programs.zsh = {
 		enable = true;
 		enableAutosuggestions = true;
+
 		dirHashes = {
 			dl = "$HOME/Downloads";
 			docs = "$HOME/Documents";
@@ -9,7 +11,9 @@
 			dots = "$HOME/dots";
 			pics = "$HOME/Pictures";
 		};
+
 		dotDir = ".config/zsh";
+		
 		shellAliases = {
 			".." = "cd ..";
 			"..." = "cd ...";
