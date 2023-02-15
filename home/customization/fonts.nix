@@ -1,18 +1,10 @@
-{pkgs, ...}: {
-
+{pkgs, lib, ...}: {
+     
     fonts = {
-        fonts = lib.attrValues {
-            inherit (pkgs) 
-                # fonts will go here
-                nerdfonts = pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; }
-        };
-
-        fontconfig = {
-            enable = true;
-
-            defaultFonts = {
-                monospace = "Fira Code";
-            }
-        };
-    }
+        fontconfig.enable = true;
+    };
+        
+    home.packages = [
+            (pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; })
+        ];
 }
