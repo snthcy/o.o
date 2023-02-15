@@ -5,6 +5,8 @@
   ./programs/git.nix
   ./shell/zsh.nix
   ./shell/cli.nix
+  ./shell/starship.nix
+  ./customization/fonts.nix
   ];
 
     nixpkgs = {
@@ -58,6 +60,7 @@
       maestral
       mpv
       neovim
+      nerdfonts
       nodejs
       ouch
       python3

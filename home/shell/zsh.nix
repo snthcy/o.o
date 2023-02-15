@@ -13,7 +13,8 @@
 		};
 
 		dotDir = ".config/zsh";
-		
+		initExtra = "eval "$(starship init zsh)"";
+
 		shellAliases = {
 			".." = "cd ..";
 			"..." = "cd ...";
