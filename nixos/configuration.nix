@@ -52,22 +52,28 @@
   # TODO: This is just an example, be sure to use whatever bootloader you prefer
   boot.loader.systemd-boot.enable = true;
 
-  users.users = {
-    nom = {
-      initialPassword = "nixos";
-      isNormalUser = true;
-      # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
-      extraGroups = [ "wheel" ];
-      shell = pkgs.zsh;
+  users = {
+    defaultUserShell = pkgs.zsh;
+    users = {
+      nom = {
+        initialPassword = "nixos";
+        isNormalUser = true;
+        # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
+        extraGroups = [ "wheel" ];
+        shell = pkgs.zsh;
+      };
     };
   };
 
-  environment.systemPackages = with pkgs; [
-    coreutils
-    gcc
-    vim
-    zsh
-  ];
+  environment = {
+    shells = with pkgs; [ zsh ];
+    systemPackages = with pkgs; [
+      coreutils
+      gcc
+      vim
+      zsh
+    ];
+  };
 
   # This setups a SSH server. Very important if you're setting up a headless system.
   # Feel free to remove if you don't need it.
