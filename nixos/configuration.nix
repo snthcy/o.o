@@ -47,7 +47,10 @@
     };
   };
 
-  networking.hostName = "hpee";
+  networking = {
+    hostName = "hpee";
+    networkmanager.enable = true;
+  };
 
   # TODO: This is just an example, be sure to use whatever bootloader you prefer
   boot.loader.systemd-boot.enable = true;
@@ -59,7 +62,11 @@
         initialPassword = "nixos";
         isNormalUser = true;
         # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
-        extraGroups = [ "wheel" ];
+        extraGroups = [ 
+          "wheel" 
+          "networkmanager" 
+          "audio" 
+        ];
         shell = pkgs.zsh;
       };
     };
@@ -69,6 +76,8 @@
     shells = with pkgs; [ zsh ];
     systemPackages = with pkgs; [
       coreutils
+      curl
+      wget
       gcc
       vim
       zsh
@@ -88,6 +97,8 @@
 
     xserver = {
       enable = true;
+      libinput.enable = true;
+      displayManager.startx.enable = true;
 
       desktopManager.plasma5 = {
         enable = true;
