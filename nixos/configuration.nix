@@ -85,15 +85,15 @@
     # Use keys only. Remove if you want to SSH using password (not recommended)
     passwordAuthentication = false;
     };
-    
+
     xserver = {
       enable = true;
 
       desktopManager.plasma5 = {
         enable = true;
-    }
+      };
+    };
   };
-
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "22.11";
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
