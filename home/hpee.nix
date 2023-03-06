@@ -42,6 +42,7 @@
     };
 
     packages = with pkgs; [
+      (pkgs.nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
       _1password-gui
       bat
       btop
