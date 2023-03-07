@@ -10,7 +10,7 @@
 
 o.o is a collection of my personal system configurations, also known as "dotfiles". Currently, this is managed through a package management tool/operating system called [Nix](https://nixos.org).
 
-> **NOTE:** - This is my setup. I cannot guarentee that it'll work for you.
+> **NOTE:** - This is my setup. I cannot guarentee that it'll work for you. It's barely working for me
 
 ## setup
 

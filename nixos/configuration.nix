@@ -21,11 +21,10 @@
       # neovim-nightly-overlay.overlays.default
 
       # Or define it inline, for example:
-      # (final: prev: {
-      #   hi = final.hello.overrideAttrs (oldAttrs: {
-      #     patches = [ ./change-hello-to-hi.patch ];
-      #   });
-      # })
+      (final: prev:
+        {
+          awesome = inputs.nixpkgs-f2k.packages.${pkgs.system}.awesome-git;
+        })
     ];
     config = {
       allowUnfree = true;
@@ -44,6 +43,16 @@
     settings = {
       experimental-features = ["nix-command" "flakes"];
       auto-optimise-store = true;
+    };
+  };
+
+  hardware = {
+    enableRedistributableFirmware = true;
+
+    opengl = {
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
     };
   };
 
@@ -96,12 +105,19 @@
     };
 
     xserver = {
+      dpi = 141;
       enable = true;
       libinput.enable = true;
       displayManager.startx.enable = true;
+      videoDrivers = [ "amdgpu" ];
 
-      desktopManager.plasma5 = {
-        enable = true;
+      # desktopManager.plasma5 = {
+      #   enable = true;
+      # };
+
+      windowManager = {
+        awesome = {
+          enable = true;
       };
     };
   };
