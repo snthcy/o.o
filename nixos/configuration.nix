@@ -111,9 +111,9 @@
       displayManager.startx.enable = true;
       videoDrivers = [ "amdgpu" ];
 
-      # desktopManager.plasma5 = {
-      #   enable = true;
-      # };
+      displayManager.startx = {
+        enable = true;
+      };
 
       windowManager = {
         awesome = {
