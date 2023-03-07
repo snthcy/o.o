@@ -62,7 +62,12 @@
   };
 
   # TODO: This is just an example, be sure to use whatever bootloader you prefer
-  boot.loader.systemd-boot.enable = true;
+  boot = {
+    loader = {
+      systemd-boot.enable = true;
+      efi.efiSysMountPoint = "/boot/efi";
+    };
+  };
 
   users = {
     defaultUserShell = pkgs.zsh;
@@ -110,11 +115,7 @@
       libinput.enable = true;
       displayManager.startx.enable = true;
       videoDrivers = [ "amdgpu" ];
-
-      displayManager.startx = {
-        enable = true;
-      };
-
+      
       windowManager = {
         awesome = {
           enable = true;
@@ -124,5 +125,4 @@
   };
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "22.11";
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
 }

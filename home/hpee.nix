@@ -34,6 +34,7 @@
   home = {
     username = "nom";
     homeDirectory = "/home/nom";
+    file.".xinitrc".source = ./xinitrc;
 
     sessionVariables = {
       EDITOR = "hx";
