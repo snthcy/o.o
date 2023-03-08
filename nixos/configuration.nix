@@ -121,10 +121,6 @@
           enable = true;
         };
       };
-
-      desktopManager.plasma5 = {
-          enable = false;
-      };
     };
   };
   
