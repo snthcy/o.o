@@ -53,11 +53,13 @@
       discord
       exa
       ffmpeg
+      firefox
       gimp
       go
       helix
       httpie
       kitty
+      ladybird
       lua
       maestral
       mpv
@@ -76,7 +78,8 @@
       termius
       tetrio-desktop
       transmission
-      vivaldi
+      unzip
+      zathura
       zoom-us
     ];
   };

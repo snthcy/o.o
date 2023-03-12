@@ -63,6 +63,8 @@
 
   # TODO: This is just an example, be sure to use whatever bootloader you prefer
   boot = {
+    kernelPackages = pkgs.linuxPackages_latest; 
+
     loader = {
       systemd-boot.enable = true;
       efi.efiSysMountPoint = "/boot/efi";
@@ -89,25 +91,38 @@
   environment = {
     shells = with pkgs; [ zsh ];
     systemPackages = with pkgs; [
+      alsa-tools 
+      alsa-utils
+      brightnessctl
       coreutils
       curl
       wget
+      home-manager
+      pulseaudio
       gcc
       vim
       zsh
     ];
   };
 
-  # This setups a SSH server. Very important if you're setting up a headless system.
-  # Feel free to remove if you don't need it.
   services = {
     openssh = {
     enable = true;
-    # Forbid root login through SSH.
     permitRootLogin = "no";
     # Use keys only. Remove if you want to SSH using password (not recommended)
     passwordAuthentication = false;
     };
+
+    pipewire = {
+      enable = true;
+
+      alsa = {
+        enable = true;
+        support32Bit = true;
+      };
+
+      pulse.enable = true;
+  };
 
     xserver = {
       dpi = 141;
@@ -121,6 +136,16 @@
           enable = true;
         };
       };
+    };
+  };
+
+  hardware.pulseaudio.enable = false;
+
+  systemd.user.services = {
+    pipewire.wantedBy = ["default.target"];
+    pipewire-pulse = {
+      path = [pkgs.pulseaudio];
+      wantedBy = ["default.target"];
     };
   };
   

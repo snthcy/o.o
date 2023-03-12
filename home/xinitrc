@@ -1,6 +1,6 @@
 session=${1:-awesome}
 
 case $session in
-    awesome           ) exec awesome;;
-    kde               ) exec startplasma-x11;;
+    awesome           ) exec awesome ;;
+    kde               ) exec startplasma-x11 ;;
 esac
