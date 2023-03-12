@@ -34,12 +34,17 @@
   home = {
     username = "nom";
     homeDirectory = "/home/nom";
-    file.".xinitrc".source = ./xinitrc;
+
+    file = {
+      ".xinitrc".source = ./xinitrc;
+      ".config/awesome/rc.lua".source = ./desktop/awesome/rc.lua;
+      ".config/awesome/config".source = ./desktop/awesome/config;
+    }
 
     sessionVariables = {
       EDITOR = "hx";
       SHELL = "${pkgs.zsh}/bin/zsh";
-      BROWSER = "${pkgs.vivaldi}/bin/vivaldi";
+      BROWSER = "firefox";
     };
 
     packages = with pkgs; [
