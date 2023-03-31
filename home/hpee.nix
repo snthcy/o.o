@@ -37,7 +37,8 @@
 
     file = {
       ".xinitrc".source = ./xinitrc;
-      ".config/awesome/".source = ./desktop/awesome;
+      ".config/awesome/rc.lua".source = ./desktop/awesome/rc.lua;
+      ".config/awesome/config".source = ./desktop/awesome/config;
     };
 
     sessionVariables = {
