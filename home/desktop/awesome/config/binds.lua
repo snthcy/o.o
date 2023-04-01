@@ -31,25 +31,38 @@ awful.keyboard.append_global_keybindings({
     --     { description = "screen region", group = "screenshot" }),
 
     awful.key({ }, "XF86AudioRaiseVolume", function () 
-			awful.spawn.with_shell("pactl set-sink-mute @DEFAULT_SINK@ 0")
-			awful.spawn.with_shell("pactl set-sink-volume @DEFAULT_SINK@ +5%")
+			awful.spawn.with_shell("pamixer -i 3")
 			--awesome.emit_signal("widget::volume")
 		end,
         { description = "raise volume", group = "volume" }),
 
     -- !! TODO: audio keys and widgets
     awful.key({ }, "XF86AudioLowerVolume", function () 
-			awful.spawn.with_shell("pactl set-sink-mute @DEFAULT_SINK@ 0")
-			awful.spawn.with_shell("pactl set-sink-volume @DEFAULT_SINK@ -5%")
+			awful.spawn.with_shell("pamixer -d 3")
 			--awesome.emit_signal("widget::volume")
 		end,
         { description = "lower volume", group = "volume" }),
 
     awful.key({ }, "XF86AudioMute", function () 
-			awful.spawn.with_shell("pactl set-sink-mute @DEFAULT_SINK@ toggle")
+			awful.spawn.with_shell("pamixer -t")
 			--awesome.emit_signal("widget::volume")
 		end,
         { description = "mute volume", group = "volume" }),
+
+    awful.key({ }, "XF86AudioPlay", function() 
+        awful.spawn("playerctl play-pause") 
+        end,
+        { description = "toggle playerctl", group = "awesome" }),
+
+    awful.key({ }, "XF86AudioPrev", function() 
+        awful.spawn("playerctl previous") 
+        end,
+        { description = "playerctl previous", group = "awesome" }),
+
+    awful.key({ }, "XF86AudioNext", function() 
+        awful.spawn("playerctl next") 
+        end,
+        { description = "playerctl next", group = "awesome" }),
 
 	awful.key({ }, "XF86MonBrightnessUp", function () 
 			awful.spawn.with_shell("brightnessctl set +5%")

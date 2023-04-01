@@ -91,6 +91,7 @@
   environment = {
     shells = with pkgs; [ zsh ];
     systemPackages = with pkgs; [
+      acpi
       alsa-tools 
       alsa-utils
       brightnessctl
@@ -98,8 +99,9 @@
       curl
       wget
       home-manager
-      pulseaudio
+      pavucontrol
       gcc
+      imagemagick
       vim
       zsh
     ];

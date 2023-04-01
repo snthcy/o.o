@@ -21,7 +21,6 @@ require("awful.hotkeys_popup.keys")
 -- binds, main, menu, rules
 require("config")
 
-
 -- errors
 if awesome.startup_errors then
     naughty.notify({ preset = naughty.config.presets.critical,
@@ -43,20 +42,8 @@ do
     end)
 end
 
-
--- defaults
-terminal = "kitty"
-browser = "firefox"
-editor = os.getenv("EDITOR") or "vim"
-editor_cmd = terminal .. " -e " .. editor
-shutdown = "systemctl poweroff"
-reboot = "systemctl reboot"
-modkey = "Mod4"
-
-
 -- themes
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
-
 
 -- table of layouts
 awful.layout.layouts = {
