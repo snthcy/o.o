@@ -67,7 +67,7 @@
 
     loader = {
       systemd-boot.enable = true;
-      efi.efiSysMountPoint = "/boot/efi";
+      # efi.efiSysMountPoint = "/boot/efi";
     };
   };
 
