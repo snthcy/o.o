@@ -35,9 +35,17 @@
     username = "nom";
     homeDirectory = "/home/nom";
 
+    # s/o JavaCafe01
+     activation = {
+      installAwesomeConfig = ''
+        if [ ! -d "${config.home.homeDirectory}/.config/awesome" ]; then
+          ln -s "/etc/nixos/home/desktop/awesome" "${config.home.homeDirectory}/.config/awesome" 
+        fi
+      '';
+    };
+
     file = {
       ".xinitrc".source = ./xinitrc;
-      ".config/awesome/".source = ./desktop/awesome;
     };
 
     sessionVariables = {
