@@ -46,6 +46,7 @@
 
     file = {
       ".xinitrc".source = ./xinitrc;
+      ".config/awesome/".source = ./desktop/awesome;
     };
 
     sessionVariables = {
