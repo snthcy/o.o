@@ -16,7 +16,7 @@
     nixosConfigurations = {
       hpee = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
-        modules = [ ./nixos/configuration.nix ];
+        modules = [ ./hosts/hpee/configuration.nix ];
       };
     };
 
